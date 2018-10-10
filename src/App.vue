@@ -1,12 +1,36 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <h2>Image Upload</h2>
+    <image-upload
+        @cancel="onImageUploadCancel"
+        @upload="onImageUpload"></image-upload>
+    <img
+      v-if="url"
+      :src="url"/>
   </div>
 </template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import ImageUpload from './components/ImageUpload.vue';
+
+@Component({
+  components: { ImageUpload },
+})
+export default class App extends Vue {
+  // data
+  url: string = '';
+
+  // method
+  private onImageUpload(url: string) {
+    this.url = url;
+  }
+
+  private onImageUploadCancel() {
+    this.url = '';
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
@@ -15,15 +39,9 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+
+  img {
+    margin: 1rem;
   }
 }
 </style>

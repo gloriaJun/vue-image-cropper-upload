@@ -1,4 +1,15 @@
 # vue-cli3-sample
+Image Upload / Crop Component 
+
+* Library
+Image Upload & Crop : [vue-croppa](https://github.com/zhanziyang/vue-croppa)
+
+## Project Structure
+* components/ImageUpload.vue
+이미지 업로드 및 추가 
+
+* App.vue
+이미지 업로드 컴포넌트 호출 및 업로드된 이미지를 확인
 
 ## Project setup
 ```
