@@ -9,6 +9,8 @@
       <button @click="handleClickAdd">Add Image</button>
       <button @click="handleClickCancel">Cancel</button>
       <button @click="handleClickConfirm">Confirm</button>
+      <button @click="handleClickZoom(true)">Zoom In(+)</button>
+      <button @click="handleClickZoom(false)">Zoom Out(-)</button>
     </div>
   </div>
 </template>
@@ -31,13 +33,21 @@ export default class ImageUpload extends Vue {
     this.$refs.croppa.chooseFile();
   }
 
+  private handleClickZoom(isZoomIn: boolean): void {
+    if (isZoomIn) {
+      this.myCroppa.zoomIn();
+    } else{
+      this.myCroppa.zoomOut()
+    }
+  }
+
   @Emit('cancel')
   private handleClickCancel(): void {
     this.myCroppa.remove();
   }
 
   @Emit('upload')
-  private handleClickConfirm(): void {
+  private handleClickConfirm(): string | void {
     console.log('?/');
     const url = this.myCroppa.generateDataUrl();
     if (!url) {
