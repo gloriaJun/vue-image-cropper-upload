@@ -2,7 +2,7 @@
 Image Upload / Crop Component 
 
 * Library
-Image Upload & Crop : [vue-croppa](https://github.com/zhanziyang/vue-croppa)
+Image Upload & Crop : [Agontuk/vue-cropperjs](https://github.com/Agontuk/vue-cropperjs)
 
 ## Project Structure
 * components/ImageUpload.vue

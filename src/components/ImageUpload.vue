@@ -34,8 +34,6 @@
 </template>
 
 <script lang="ts">
-declare module 'vue-cropperjs' ;
-
 import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
 import VueCropper from 'vue-cropperjs';
 import 'cropperjs/dist/cropper.min.css';
@@ -43,13 +41,11 @@ import 'cropperjs/dist/cropper.min.css';
 @Component({
     components: {
         VueCropper,
-    }
+    },
 })
 export default class ImageUpload extends Vue {
   @Prop({ default: 'image/*' })
   private acceptType!: string;
-  // @Prop({ default: 1024 })
-  // private fileSizeLimit!: number;
 
   // data
   private imgOrgSrc: string | ArrayBuffer | null = null;
