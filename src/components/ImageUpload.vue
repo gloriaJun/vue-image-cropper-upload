@@ -53,12 +53,12 @@ export default class ImageUpload extends Vue {
 
   // methods
   private handleClickAdd(): void {
-      (<HTMLInputElement>this.$refs.input).click();
+      (this.$refs.input as HTMLInputElement).click();
   }
 
   private handleFileChange(event: { target: HTMLInputElement}): void {
       this.imgSrc = null;
-      const file = event.target.files[0];
+      const file: Blob = (event && event.target && event.target.files) ? event.target.files[0] : new Blob();
 
       const fileReader: FileReader = new FileReader();
       fileReader.readAsDataURL(file);
@@ -77,16 +77,16 @@ export default class ImageUpload extends Vue {
   @Emit('cancel')
   private handleClickReload(): void {
       this.imgSrc = this.imgOrgSrc;
-      (<Vue>this.$refs.cropper).reset();
+      (this.$refs.cropper as Vue).reset();
   }
 
   private handleClickZoom(isZoomIn: boolean): void {
-      (<Vue>this.$refs.cropper).relativeZoom(isZoomIn ? 0.1 : -0.1);
+      (this.$refs.cropper as Vue).relativeZoom(isZoomIn ? 0.1 : -0.1);
   }
 
   @Emit('upload')
   private handleClickConfirm(): string | ArrayBuffer | null {
-      this.imgSrc = (<Vue>this.$refs.cropper).getCroppedCanvas().toDataURL();
+      this.imgSrc = (this.$refs.cropper as Vue).getCroppedCanvas().toDataURL();
       return this.imgSrc;
   }
 }
