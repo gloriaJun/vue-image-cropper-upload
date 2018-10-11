@@ -17,6 +17,10 @@
 
 <script lang="ts">
 import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
+import Croppa from 'vue-croppa';
+import 'vue-croppa/dist/vue-croppa.css';
+
+Vue.use(Croppa);
 
 @Component({})
 export default class ImageUpload extends Vue {
@@ -30,7 +34,7 @@ export default class ImageUpload extends Vue {
 
   // methods
   private handleClickAdd(): void {
-    this.$refs.croppa.chooseFile();
+      (<Vue>this.$refs['croppa']).chooseFile();
   }
 
   private handleClickZoom(isZoomIn: boolean): void {

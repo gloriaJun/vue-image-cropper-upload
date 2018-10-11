@@ -18,7 +18,7 @@
 
     // adding custom
     "linebreak-style": [true, "LF"],
-    "class-name": true, // ??
+    "class-name": true,
     "no-var-keyword": true,
     "semicolon": [true, "always"]
   }
