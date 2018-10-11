@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <rx-js-sample></rx-js-sample>
     <h2>Image Upload</h2>
     <image-upload
         @cancel="onImageUploadCancel"
@@ -16,10 +17,14 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import RxJsSample from './components/RxJsSample.vue';
 import ImageUpload from './components/ImageUpload.vue';
 
 @Component({
-  components: { ImageUpload },
+  components: {
+    ImageUpload,
+    RxJsSample,
+  },
 })
 export default class App extends Vue {
   // data
@@ -39,9 +44,6 @@ export default class App extends Vue {
 <style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 
   h4 {
