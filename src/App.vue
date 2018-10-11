@@ -4,9 +4,13 @@
     <image-upload
         @cancel="onImageUploadCancel"
         @upload="onImageUpload"></image-upload>
-    <img
-      v-if="url"
-      :src="url"/>
+
+    <h4>Result Image</h4>
+    <div class="image-box">
+      <img
+        v-if="url"
+        :src="url">
+    </div>
   </div>
 </template>
 
@@ -40,8 +44,23 @@ export default class App extends Vue {
   text-align: center;
   color: #2c3e50;
 
-  img {
+  h4 {
+    margin-top: 3rem;
+  }
+  .image-box {
+    display: flex;
+    justify-content: center;
     margin: 1rem;
+    width: 500px;
+    height: 300px;
+    border: 1px solid;
+    background-color: #eee;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
 }
 </style>
