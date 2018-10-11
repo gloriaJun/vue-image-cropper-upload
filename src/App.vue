@@ -19,7 +19,7 @@ import ImageUpload from './components/ImageUpload.vue';
 })
 export default class App extends Vue {
   // data
-  url: string = '';
+  private url: string = '';
 
   // method
   private onImageUpload(url: string) {

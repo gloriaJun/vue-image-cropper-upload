@@ -26,7 +26,7 @@ export default class ImageUpload extends Vue {
   // private fileSizeLimit!: number;
 
   // data
-  myCroppa: object = {};
+  private myCroppa: object = {};
 
   // methods
   private handleClickAdd(): void {
@@ -48,7 +48,6 @@ export default class ImageUpload extends Vue {
 
   @Emit('upload')
   private handleClickConfirm(): string | void {
-    console.log('?/');
     const url = this.myCroppa.generateDataUrl();
     if (!url) {
       alert('no uploaded image');
