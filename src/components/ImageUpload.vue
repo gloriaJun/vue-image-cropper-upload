@@ -69,8 +69,6 @@ export default class ImageUpload extends Vue {
       fileReader.onload = () => {
           this.imgSrc = fileReader.result;
           this.imgOrgSrc = this.imgSrc;
-          // rebuild cropperjs with the updated source
-          // this.$refs.cropper.replace(fileReader.result);
       };
   }
 
@@ -87,7 +85,7 @@ export default class ImageUpload extends Vue {
   }
 
   private handleClickZoom(isZoomIn: boolean): void {
-      (<Vue>this.$refs.cropper).relativeZoom(isZoomIn? 0.1 : -0.1);
+      (<Vue>this.$refs.cropper).relativeZoom(isZoomIn ? 0.1 : -0.1);
   }
 
   @Emit('upload')

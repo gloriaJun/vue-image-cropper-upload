@@ -18,8 +18,8 @@
 
     // adding custom
     "linebreak-style": [true, "LF"],
+    "semicolon": [true, "always"],
     "class-name": true,
-    "no-var-keyword": true,
-    "semicolon": [true, "always"]
+    "no-var-keyword": true
   }
 }

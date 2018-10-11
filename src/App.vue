@@ -23,7 +23,7 @@ import ImageUpload from './components/ImageUpload.vue';
 })
 export default class App extends Vue {
   // data
-  private url: string = '';
+  private url: string | null = null;
 
   // method
   private onImageUpload(url: string) {
@@ -31,7 +31,7 @@ export default class App extends Vue {
   }
 
   private onImageUploadCancel() {
-    this.url = '';
+    this.url = null;
   }
 }
 </script>
